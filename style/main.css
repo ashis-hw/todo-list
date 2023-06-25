@@ -1,0 +1,256 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url(https://static.vecteezy.com/system/resources/previews/000/358/453/original/vector-purple-abstract-background.jpg) no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.container {
+  width: 420px;
+  height: auto;
+  min-height: 400px;
+  padding: 30px;
+  background: transparent;
+  border: 2px solid #fc1115;
+  border-radius: 10px;
+  backdrop-filter: blur(15px);
+}
+
+h1 {
+  color: #7ff906;
+  text-align: center;
+  margin-bottom: 36px;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  font-size: 60px;
+}
+
+.input-container {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.todo-input {
+  flex: 1;
+  outline: none;
+  padding: 10px 10px 10px 20px;
+  background-color: transparent;
+  border: 2px solid #e6b7eca1;
+  border-radius: 30px;
+  color: #eee;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.todo-input::placeholder {
+  color: #bfbfbf;
+}
+
+.add-button {
+  border: none;
+  outline: none;
+  background: #e6b7eca1;
+  color: #fff;
+  font-size: 35px;
+  cursor: pointer;
+  border-radius: 40px;
+  width: 40px;
+  height: 40px;
+  animation-name: rotate;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+.empty-image {
+  margin: 55px auto 0;
+  display: block;
+  animation-name: fadeIn;
+  animation-duration: 1s;
+
+  animation-name: dance;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  transform-origin: center;
+}
+
+.todo {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #463c7b;
+  border-radius: 5px;
+  margin: 10px 0;
+  padding: 10px 12px;
+  border: 2px solid #e6b7eca1;
+  transition: all 0.2s ease;
+}
+
+.todo:first-child {
+  margin-top: 0;
+}
+
+.todo:last-child {
+  margin-bottom: 0;
+}
+
+.todo:hover {
+  background-color:#e6b7eca1;
+}
+
+.todo label {
+  cursor: pointer;
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  font-family: 'Roboto', sans-serif;
+  color: #eee;
+}
+
+.todo span {
+  padding-left: 20px;
+  position: relative;
+  cursor: pointer;
+}
+
+span::before {
+  content: "";
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  margin-left: -30px;
+  border-radius: 100px;
+  border: 2px solid #e6b7eca1;
+}
+
+input[type='checkbox'] {
+  visibility: hidden;
+}
+
+input:checked + span {
+  text-decoration: line-through
+}
+
+.todo:hover input:checked + span::before, input:checked + span::before {
+  background: url(images/check.svg) 50% 50% no-repeat #09bb21;
+  border-color: #09bb21;
+}
+
+.todo:hover span::before {
+  border-color: #eee;
+}
+
+.todo .delete-btn  {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: #eee;
+  font-size: 24px;
+}
+
+.todos-container  {
+  height: 300px;
+  overflow: overlay;
+}
+
+.todos-container::-webkit-scrollbar-track  {
+  background: rgb(247, 247, 247);
+  border-radius: 20px
+}
+
+.todos-container::-webkit-scrollbar  {
+  width: 0;
+}
+
+.todos-container:hover::-webkit-scrollbar  {
+  width: 7px;
+}
+
+.todos-container::-webkit-scrollbar-thumb  {
+  background: #d5d5d5;
+  border-radius: 20px;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.filter {
+  color: #eee;
+  padding: 5px 15px;
+  border-radius: 100px;
+  border: 2px solid #e6b7eca1;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.filter.active, .filter:hover {
+  background-color: #e6b7eca1;
+}
+
+.delete-all {
+  display: flex;
+  color: #eee;
+  padding: 7px 15px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.delete-all:hover {
+  border-radius: 5px;
+  background-color: #e6b7eca1;
+}
+.count-container {
+  display: flex;
+  justify-content: space-between;
+  /* margin-bottom: 2px; */
+  color: #09f560;
+  /* font-size: 20px; */
+  animation: countAnimation 1s ease-in-out infinite;
+}
+
+@keyframes countAnimation {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes rotate {
+  0% { transform: rotate(0); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes dance {
+  0% { transform: rotate(0); }
+  25% { transform: rotate(15deg); }
+  50% { transform: rotate(-15deg); }
+  75% { transform: rotate(10deg); }
+  100% { transform: rotate(0); }
+}
+
+
