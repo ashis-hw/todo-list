@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TODO LIST</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="style/main.css">
+  <style>
+   .container {
+      perspective: 1000px; 
+      transform-style: preserve-3d; 
+      transform: rotateY(10deg); 
+      box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.6);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>T O D O</h1>
+    
+    <div class="input-container">
+      <input class="todo-input" placeholder="Add a new task...">
+      <button class="add-button">
+        <i class="fa fa-plus-circle"></i>
+      </button>
+    </div>
+    <div class="filters">
+      <div class="filter" data-filter="completed">Complete</div>
+      <div class="filter" data-filter="pending">Incomplete</div>
+      <div class="delete-all">Delete All</div>
+    </div>
+    
+    <div class="todos-container">
+      <ul class="todos"></ul>
+      <img class="empty-image" src="images/blank.png" style="width:200px;">
+    </div>
+
+    
+    <div class="count-container">
+        <div class="filter"><p class="count" style="color:rgb(23, 241, 121);font-size: 20px;"> </p></div>
+        <div class="filter"><p class="count" style="color:rgb(6, 229, 245);font-size: 20px;">CREATED BY ASHIS</p></div>
+         
+    </div>
+  </div>
+ 
+  <script src="script/app.js"></script>
+</body>
+</html>
