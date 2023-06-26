@@ -8,8 +8,7 @@ const deleteAllButton = document.querySelector(".delete-all");
 const filters = document.querySelectorAll(".filter");
 let filter = '';
 
-showTodos();
-
+// Function to generate the HTML for each todo item
 function getTodoHtml(todo, index) {
   if (filter && filter !== todo.status) {
     return '';
@@ -26,6 +25,7 @@ function getTodoHtml(todo, index) {
   `;
 }
 
+// Function to display todos on the page
 function showTodos() {
   if (todosJson.length === 0) {
     todosHtml.innerHTML = '';
@@ -37,6 +37,7 @@ function showTodos() {
   updateCount();
 }
 
+// Function to add a new todo
 function addTodo(todo) {
   input.value = "";
   todosJson.unshift({ name: todo, status: "pending" });
@@ -45,6 +46,7 @@ function addTodo(todo) {
   updateCount();
 }
 
+// Event listener for Enter key and Add button click to add a new todo
 input.addEventListener("keyup", e => {
   let todo = input.value.trim();
   if (!todo || e.key !== "Enter") {
@@ -61,6 +63,7 @@ addButton.addEventListener("click", () => {
   addTodo(todo);
 });
 
+// Function to update the status (completed/pending) of a todo
 function updateStatus(todo) {
   let todoName = todo.parentElement.lastElementChild;
   if (todo.checked) {
@@ -73,6 +76,7 @@ function updateStatus(todo) {
   localStorage.setItem("todos", JSON.stringify(todosJson));
 }
 
+// Function to remove a todo
 function remove(todo) {
   const index = todo.dataset.index;
   todosJson.splice(index, 1);
@@ -81,6 +85,7 @@ function remove(todo) {
   updateCount();
 }
 
+// Event listeners for filter buttons
 filters.forEach(function (el) {
   el.addEventListener("click", (e) => {
     if (el.classList.contains('active')) {
@@ -95,6 +100,7 @@ filters.forEach(function (el) {
   });
 });
 
+// Event listener for delete_all button
 deleteAllButton.addEventListener("click", () => {
   todosJson = [];
   localStorage.setItem("todos", JSON.stringify(todosJson));
@@ -102,6 +108,7 @@ deleteAllButton.addEventListener("click", () => {
   updateCount();
 });
 
+// Function to update the count of todos
 function updateCount() {
   countElement.textContent = todosJson.length;
 }
