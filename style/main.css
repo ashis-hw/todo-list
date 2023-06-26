@@ -1,3 +1,4 @@
+/* Reset styles for all elements */
 *,
 *::before,
 *::after {
@@ -6,6 +7,7 @@
   box-sizing: border-box;
 }
 
+/* Body styles */
 body {
   font-family: 'Roboto', sans-serif;
   height: 100vh;
@@ -17,6 +19,7 @@ body {
   background-size: cover;
 }
 
+/* Styles for the container element */
 .container {
   width: 420px;
   height: auto;
@@ -26,8 +29,13 @@ body {
   border: 2px solid #fc1115;
   border-radius: 10px;
   backdrop-filter: blur(15px);
+  perspective: 1000px; 
+  transform-style: preserve-3d; 
+  transform: rotateY(10deg); 
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.6);
 }
 
+/* Heading styles */
 h1 {
   color: #7ff906;
   text-align: center;
@@ -38,6 +46,7 @@ h1 {
   font-size: 60px;
 }
 
+/* Input section styles */
 .input-container {
   display: flex;
   justify-content: space-between;
@@ -60,6 +69,7 @@ h1 {
   color: #bfbfbf;
 }
 
+/* todo task add button style*/
 .add-button {
   border: none;
   outline: none;
@@ -75,6 +85,7 @@ h1 {
   animation-iteration-count: infinite;
 }
 
+/* Empty image styles */
 .empty-image {
   margin: 55px auto 0;
   display: block;
@@ -87,6 +98,7 @@ h1 {
   transform-origin: center;
 }
 
+/* Todo item styles */
 .todo {
   list-style: none;
   display: flex;
@@ -108,6 +120,7 @@ h1 {
   margin-bottom: 0;
 }
 
+/*After clicking on any item color will change*/
 .todo:hover {
   background-color:#e6b7eca1;
 }
@@ -162,6 +175,8 @@ input:checked + span {
   font-size: 24px;
 }
 
+
+/* Todos container styles */
 .todos-container  {
   height: 300px;
   overflow: overlay;
@@ -185,6 +200,7 @@ input:checked + span {
   border-radius: 20px;
 }
 
+/* Filter section styles */
 .filters {
   display: flex;
   justify-content: space-between;
@@ -204,6 +220,7 @@ input:checked + span {
   background-color: #e6b7eca1;
 }
 
+/* Delete all button styles */
 .delete-all {
   display: flex;
   color: #eee;
@@ -216,6 +233,8 @@ input:checked + span {
   border-radius: 5px;
   background-color: #e6b7eca1;
 }
+
+/* Count container styles */
 .count-container {
   display: flex;
   justify-content: space-between;
@@ -225,6 +244,7 @@ input:checked + span {
   animation: countAnimation 1s ease-in-out infinite;
 }
 
+/*animations for count tasks*/
 @keyframes countAnimation {
   0% {
     transform: scale(1);
@@ -236,15 +256,20 @@ input:checked + span {
     transform: scale(1);
   }
 }
+
+/*Animation for Heading*/
 @keyframes fadeIn {
   0% { opacity: 0; }
   100% { opacity: 1; }
 }
+
+/*Animation for add button to add new list*/
 @keyframes rotate {
   0% { transform: rotate(0); }
   100% { transform: rotate(360deg); }
 }
 
+/* Animation for empty image*/
 @keyframes dance {
   0% { transform: rotate(0); }
   25% { transform: rotate(15deg); }
